@@ -1,6 +1,8 @@
 class TeamsController < ApplicationController
+  before_action :set_team, only: [:edit, :update, :destroy]
+  before_action :set_league
   before_action :authenticate_user!
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  
 
 
   # GET /teams/new
@@ -17,6 +19,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     @team.user_id = current_user.id
+    @review.league_id = @league.id
 
     respond_to do |format|
       if @team.save
@@ -57,6 +60,10 @@ class TeamsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_team
       @team = Team.find(params[:id])
+    end
+
+    def set_league
+      @league = League.find(params[:league_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

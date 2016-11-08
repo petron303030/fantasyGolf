@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :teams, except: [:show, :index]
   devise_for :users
-  resources :leagues
+  resources :leagues do
+    resources :teams, except: [:show, :index]
+  end  
+
   get 'pages/about'
 
   get 'pages/contact'

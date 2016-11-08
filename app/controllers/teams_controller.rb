@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   # GET /teams
@@ -25,6 +26,7 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
+    @team.user_id = current_user.id
 
     respond_to do |format|
       if @team.save

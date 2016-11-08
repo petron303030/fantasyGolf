@@ -2,6 +2,8 @@
 
 <div class="row">
 	<div class="col-md-3">
+	
+
 <p>
   <strong>Name:</strong>
   <%= @league.name %>
@@ -16,9 +18,46 @@
   <strong>Commissioner:</strong>
   <%= @league.commissioner %>
 </p>
-
+	
+	<%= link_to "Create your team", new_league_team_path(@league), class: "btn btn-primary" %>
 	</div>
+
+	<div class="col-md-9">
+		<% if @teams.blank? %>
+			<h3>No teams yet. Be the first to join this league!</h3>
+		<% else %>
+
+<table class="table table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Team Name</th>
+      <th>Player One</th>
+      <th>Player Two</th>
+      <th>Player Three</th>
+      <th>Player Four</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+<tbody>
+<% @teams.each do |team| %>
+	<tr>
+        <td><%= team.teamname %></td>
+        <td><%= team.playerone %></td>
+        <td><%= team.playertwo %></td>
+        <td><%= team.playerthree %></td>
+        <td><%= team.playerfour %></td>
+        <td><%= link_to 'Edit', edit_team_path(team) %></td>
+     </tr>
+<% end %>
+</tbody>
+
+</table>
+<% end %>
 </div>
-<%= link_to "Create your team", new_league_team_path(@league), class: "btn btn-primary" %>
+</div>
+
+
+
 <%= link_to 'Edit', edit_league_path(@league), class: "btn btn-link" %> |
 <%= link_to 'Back', leagues_path, class: "btn btn-link" %>

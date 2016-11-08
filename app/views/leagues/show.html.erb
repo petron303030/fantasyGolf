@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @league.name %>
+</p>
+
+<p>
+  <strong>Nummembers:</strong>
+  <%= @league.numMembers %>
+</p>
+
+<p>
+  <strong>Commissioner:</strong>
+  <%= @league.commissioner %>
+</p>
+
+<%= link_to 'Edit', edit_league_path(@league), class: "btn btn-link" %> |
+<%= link_to 'Back', leagues_path, class: "btn btn-link" %>

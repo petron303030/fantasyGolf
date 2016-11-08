@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  numMembers: 1
+  commissioner: MyString
+
+two:
+  name: MyString
+  numMembers: 1
+  commissioner: MyString

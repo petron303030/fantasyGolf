@@ -2,16 +2,6 @@ class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
-  # GET /teams
-  # GET /teams.json
-  def index
-    @teams = Team.all
-  end
-
-  # GET /teams/1
-  # GET /teams/1.json
-  def show
-  end
 
   # GET /teams/new
   def new
@@ -30,7 +20,7 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Team was successfully created.' }
         format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new }

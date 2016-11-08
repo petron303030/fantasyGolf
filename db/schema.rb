@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108191524) do
+ActiveRecord::Schema.define(version: 20161108202637) do
 
   create_table "leagues", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 20161108191524) do
     t.string   "commissioner"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "teamname"
+    t.string   "playerone"
+    t.string   "playertwo"
+    t.string   "playerthree"
+    t.string   "playerfour"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

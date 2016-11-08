@@ -19,11 +19,11 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     @team.user_id = current_user.id
-    @review.league_id = @league.id
+    @team.league_id = @league.id
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to root_path, notice: 'Team was successfully created.' }
+        format.html { redirect_to @league, notice: 'Team was successfully created.' }
         format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new }

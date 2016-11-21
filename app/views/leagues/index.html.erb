@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
   <div class = "jumbotron">
     <h2>Fantasy Golf is the most fun you and your friends have ever had playing fantasy sports</h2>
-    <h3>CLick below to create a league and add your friends today to get started!</h3>
+    <h3>Click below to create a league and add your friends today to get started!</h3>
   </div>
 
 
@@ -33,4 +33,9 @@
 
 <br>
 
-<%= link_to 'New League', new_league_path, class: "btn btn-link" %>
+<% if user_signed_in? %>
+          <li><%= link_to 'New League', new_league_path, class: "btn btn-Primary" %></li>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-default" %> |
+          <%= link_to "Sign in", new_user_session_path, class: "btn btn-default" %>
+        <% end %>

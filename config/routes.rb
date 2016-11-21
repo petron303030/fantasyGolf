@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   resources :teams, except: [:show, :index]
   devise_for :users
   resources :leagues do

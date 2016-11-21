@@ -26,3 +26,27 @@
 .container-fluid {
 	padding: 10px 120px;
 }
+
+.footer {
+	margin-top:45px;
+	padding-top: 5px;
+	border-top: 2px solid gray;
+	color: gray-light;
+	a {
+		color: gray;
+		&:hover {
+			color: gray-darker;
+		}
+	}
+	small {
+		float: left;
+	}
+	ul {
+		float: right;
+		list-style: none;
+		li {
+			float: left;
+			margin-left: 15px;
+		}
+	}
+}

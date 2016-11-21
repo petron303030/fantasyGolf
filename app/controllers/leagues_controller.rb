@@ -26,6 +26,7 @@ class LeaguesController < ApplicationController
   # POST /leagues.json
   def create
     @league = League.new(league_params)
+    @listing.user_id = current_user.id
 
     respond_to do |format|
       if @league.save
@@ -70,6 +71,6 @@ class LeaguesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def league_params
-      params.require(:league).permit(:name, :numMembers, :commissioner)
+      params.require(:league).permit(:name, :category_id, :numMembers, :commissioner)
     end
 end
